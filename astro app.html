@@ -21,6 +21,15 @@
             70% { box-shadow: 0 0 0 15px rgba(234, 179, 8, 0); }
             100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
         }
+        /* 3D Downward Arrow Animation */
+        @keyframes arrow3DMove {
+            0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 5px rgba(234,179,8,0.5)); }
+            50% { transform: translateY(10px) scale(1.1); filter: drop-shadow(0 0 15px rgba(234,179,8,0.9)); }
+            100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 5px rgba(234,179,8,0.5)); }
+        }
+        .anim-3d-arrow {
+            animation: arrow3DMove 2s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="relative min-h-screen">
@@ -47,28 +56,42 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="container mx-auto px-6 py-16 text-center">
-        <div class="inline-block bg-yellow-500/10 border border-yellow-500/40 px-4 py-1.5 rounded-full text-yellow-300 text-sm font-semibold mb-6">
-            ✨ ज्योतिष गुरु और इष्ट कृपा से आपके जीवन की समस्याओं का सटीक समाधान ✨
+    <section class="container mx-auto px-6 pt-12 pb-6 text-center relative min-h-[85vh] flex flex-col justify-between items-center">
+        <div>
+            <div class="inline-block bg-yellow-500/10 border border-yellow-500/40 px-4 py-1.5 rounded-full text-yellow-300 text-sm font-semibold mb-4">
+                ✨ ज्योतिष गुरु और इष्ट कृपा से आपके जीवन की समस्याओं का सटीक समाधान ✨
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 glow-text leading-tight">
+                वैदिक ज्योतिष से पाएं अपनी सभी समस्याओं का समाधान
+            </h1>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-lg">
+                जीवन की सभी बाधाओं से मुक्ति पाने के लिए और जीवन में सुख शांति समृद्धि पाने के लिए जरूर सम्पर्क करें।
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+                <button onclick="openContactModal()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold px-8 py-3.5 rounded-full shadow-lg transition text-lg pulse-glow">
+                    <i class="fa-solid fa-phone mr-2"></i> तुरंत संपर्क करें (Call)
+                </button>
+                <a href="https://wa.me/919417110358?text=नमस्ते%20पंडित%20जी,%20मुझे%20ज्योतिषीय%20परामर्श%20चाहिए।" target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition text-lg flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp चैट
+                </a>
+            </div>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 glow-text leading-tight">
-            वैदिक ज्योतिष से पाएं अपनी सभी समस्याओं का समाधान
-        </h1>
-        <p class="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
-            जीवन की सभी बाधाओं से मुक्ति पाने के लिए और जीवन में सुख शांति समृद्धि पाने के लिए जरूर सम्पर्क करें।
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button onclick="openContactModal()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold px-8 py-3.5 rounded-full shadow-lg transition text-lg pulse-glow">
-                <i class="fa-solid fa-phone mr-2"></i> तुरंत संपर्क करें (Call)
-            </button>
-            <a href="https://wa.me/919417110358?text=नमस्ते%20पंडित%20जी,%20मुझे%20ज्योतिषीय%20परामर्श%20चाहिए।" target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition text-lg flex items-center justify-center">
-                <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp चैट
+
+        <!-- 3D Downward Arrow Scroll Indicator -->
+        <div class="w-full pb-2">
+            <a href="#services" class="inline-flex flex-col items-center group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-400/50 flex items-center justify-center shadow-[0_0_15px_rgba(234,179,8,0.4)] mb-2 group-hover:bg-yellow-500/20 transition">
+                    <i class="fa-solid fa-arrow-down text-yellow-400 text-2xl anim-3d-arrow"></i>
+                </div>
+                <span class="text-xs tracking-wider text-yellow-300 font-semibold group-hover:text-yellow-400 transition drop-shadow">
+                    👇 सभी समाधान नीचे देखें (Scroll Down)
+                </span>
             </a>
         </div>
     </section>
 
     <!-- Services / Solutions Section -->
-    <section id="services" class="container mx-auto px-6 py-12">
+    <section id="services" class="container mx-auto px-6 py-12 scroll-mt-20">
         <h2 class="text-3xl font-bold mb-8 text-center glow-text border-b border-purple-800 pb-4">
             इन सभी समस्याओं का विशेष समाधान
         </h2>
@@ -165,7 +188,7 @@
     </section>
 
     <!-- About Astrologer Section -->
-    <section id="about" class="container mx-auto px-6 py-12">
+    <section id="about" class="container mx-auto px-6 py-12 scroll-mt-20">
         <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl border border-yellow-500/40 flex flex-col md:flex-row items-center gap-8">
             <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-yellow-400 shadow-xl flex-shrink-0 bg-purple-900 flex items-center justify-center">
                 <i class="fa-solid fa-user-graduate text-8xl text-yellow-400"></i>
